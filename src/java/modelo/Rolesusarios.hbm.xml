@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Rolesusarios" table="rolesusarios" catalog="dbakihabara">
+        <composite-id name="id" class="modelo.RolesusariosId">
+            <key-property name="rolR" type="string">
+                <column name="rolR" length="30" />
+            </key-property>
+            <key-property name="idUsuario" type="int">
+                <column name="idUsuario" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="persona" class="modelo.Persona" update="false" insert="false" fetch="select">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one>
+        <many-to-one name="catRoles" class="modelo.CatRoles" update="false" insert="false" fetch="select">
+            <column name="rolR" length="30" not-null="true" />
+        </many-to-one>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="usuario" type="string">
+            <column name="usuario" length="15" not-null="true" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>

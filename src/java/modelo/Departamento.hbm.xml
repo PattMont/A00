@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Departamento" table="departamento" catalog="dbakihabara">
+        <id name="idDepartamento" type="int">
+            <column name="idDEPARTAMENTO" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sucursal" class="modelo.Sucursal" fetch="select">
+            <column name="idSucursal" not-null="true" />
+        </many-to-one>
+        <many-to-one name="catDepartamento" class="modelo.CatDepartamento" fetch="select">
+            <column name="departamento_R" length="45" not-null="true" />
+        </many-to-one>
+        <set name="empleados" inverse="true">
+            <key>
+                <column name="departamento_R" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Empleado" />
+        </set>
+        <set name="empleados_1" inverse="true">
+            <key>
+                <column name="departamento_R" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Empleado" />
+        </set>
+    </class>
+</hibernate-mapping>

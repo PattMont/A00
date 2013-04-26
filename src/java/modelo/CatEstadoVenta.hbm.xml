@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.CatEstadoVenta" table="cat_estado_venta" catalog="dbakihabara">
+        <id name="idEstadoVenta" type="string">
+            <column name="idEstadoVenta" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" not-null="true" />
+        </property>
+        <set name="ventas" inverse="true">
+            <key>
+                <column name="idEstadoR" length="45" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Venta" />
+        </set>
+        <set name="ventas_1" inverse="true">
+            <key>
+                <column name="idEstadoR" length="45" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

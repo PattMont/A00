@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Persona" table="persona" catalog="dbakihabara">
+        <id name="idPersona" type="java.lang.Integer">
+            <column name="idPERSONA" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="direccion" class="modelo.Direccion" fetch="select">
+            <column name="idDireccionR" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="nombreC" type="string">
+            <column name="nombreC" length="100" not-null="true" />
+        </property>
+        <property name="apellidoP" type="string">
+            <column name="apellidoP" length="45" not-null="true" />
+        </property>
+        <property name="apellidoM" type="string">
+            <column name="apellidoM" length="45" />
+        </property>
+        <property name="fechaNac" type="date">
+            <column name="fechaNac" length="10" not-null="true" />
+        </property>
+        <property name="fechaAlta" type="timestamp">
+            <column name="fechaAlta" length="19" not-null="true" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="1" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="45" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="18" />
+        </property>
+        <property name="tipoTelefono" type="string">
+            <column name="tipoTelefono" length="10" />
+        </property>
+        <set name="rolesusarioses" inverse="true">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Rolesusarios" />
+        </set>
+        <set name="rolesusarioses_1" inverse="true">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Rolesusarios" />
+        </set>
+        <set name="empleados" inverse="true">
+            <key>
+                <column name="idEMPLEADO" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="modelo.Empleado" />
+        </set>
+        <set name="empleados_1" inverse="true">
+            <key>
+                <column name="idEMPLEADO" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="modelo.Empleado" />
+        </set>
+        <set name="clientes" inverse="true">
+            <key>
+                <column name="idClienteR" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="modelo.Cliente" />
+        </set>
+        <set name="clientes_1" inverse="true">
+            <key>
+                <column name="idClienteR" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="modelo.Cliente" />
+        </set>
+    </class>
+</hibernate-mapping>

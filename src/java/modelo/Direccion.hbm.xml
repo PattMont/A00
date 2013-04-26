@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Direccion" table="direccion" catalog="dbakihabara">
+        <id name="idDireccion" type="java.lang.Integer">
+            <column name="idDireccion" />
+            <generator class="identity" />
+        </id>
+        <property name="estado" type="string">
+            <column name="estado" length="45" not-null="true" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="ciudad" length="45" not-null="true" />
+        </property>
+        <property name="cp" type="string">
+            <column name="cp" length="18" not-null="true" />
+        </property>
+        <property name="col" type="string">
+            <column name="col" length="45" not-null="true" />
+        </property>
+        <property name="calle" type="string">
+            <column name="calle" length="45" not-null="true" />
+        </property>
+        <property name="numero" type="string">
+            <column name="numero" length="8" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" />
+        </property>
+        <set name="personas" inverse="true">
+            <key>
+                <column name="idDireccionR" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="modelo.Persona" />
+        </set>
+        <set name="personas_1" inverse="true">
+            <key>
+                <column name="idDireccionR" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="modelo.Persona" />
+        </set>
+    </class>
+</hibernate-mapping>

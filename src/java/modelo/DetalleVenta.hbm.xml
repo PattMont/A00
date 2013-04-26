@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.DetalleVenta" table="detalle_venta" catalog="dbakihabara">
+        <composite-id name="id" class="modelo.DetalleVentaId">
+            <key-property name="idVentaR" type="int">
+                <column name="idVentaR" />
+            </key-property>
+            <key-property name="idGameR" type="int">
+                <column name="idGameR" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="game" class="modelo.Game" update="false" insert="false" fetch="select">
+            <column name="idGameR" not-null="true" />
+        </many-to-one>
+        <many-to-one name="venta" class="modelo.Venta" update="false" insert="false" fetch="select">
+            <column name="idVentaR" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <property name="precioVenta" type="double">
+            <column name="precioVenta" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="descuento" type="double">
+            <column name="descuento" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Cliente" table="cliente" catalog="dbakihabara">
+        <id name="idClienteR" type="int">
+            <column name="idClienteR" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="modelo.Persona" update="false" insert="false" fetch="select">
+            <column name="idClienteR" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="fechaAlta" type="date">
+            <column name="fechaAlta" length="10" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <set name="ventas" inverse="true">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Venta" />
+        </set>
+        <set name="ventas_1" inverse="true">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

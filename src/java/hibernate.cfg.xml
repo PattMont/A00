@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3308/dbakihabara?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">12345</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="modelo/Rolesusarios.hbm.xml"/>
+    <mapping resource="modelo/Cliente.hbm.xml"/>
+    <mapping resource="modelo/Proveedor.hbm.xml"/>
+    <mapping resource="modelo/CatPuestos.hbm.xml"/>
+    <mapping resource="modelo/CatEstado.hbm.xml"/>
+    <mapping resource="modelo/Departamento.hbm.xml"/>
+    <mapping resource="modelo/CatPlataforma.hbm.xml"/>
+    <mapping resource="modelo/CatDepartamento.hbm.xml"/>
+    <mapping resource="modelo/Game.hbm.xml"/>
+    <mapping resource="modelo/Venta.hbm.xml"/>
+    <mapping resource="modelo/DetalleVenta.hbm.xml"/>
+    <mapping resource="modelo/CatClasificacion.hbm.xml"/>
+    <mapping resource="modelo/CatEstadoVenta.hbm.xml"/>
+    <mapping resource="modelo/Sucursal.hbm.xml"/>
+    <mapping resource="modelo/Empleado.hbm.xml"/>
+    <mapping resource="modelo/DetalleCompra.hbm.xml"/>
+    <mapping resource="modelo/CatCategoria.hbm.xml"/>
+    <mapping resource="modelo/Persona.hbm.xml"/>
+    <mapping resource="modelo/Compra.hbm.xml"/>
+    <mapping resource="modelo/CatRoles.hbm.xml"/>
+    <mapping resource="modelo/Estudio.hbm.xml"/>
+    <mapping resource="modelo/Direccion.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

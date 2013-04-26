@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Compra" table="compra" catalog="dbakihabara">
+        <id name="idCompraR" type="java.lang.Integer">
+            <column name="idCompraR" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="proveedor" class="modelo.Proveedor" fetch="select">
+            <column name="idProveedor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empleado" class="modelo.Empleado" fetch="select">
+            <column name="idEmpleado" not-null="true" />
+        </many-to-one>
+        <property name="fechaCompra" type="timestamp">
+            <column name="fechaCompra" length="19" not-null="true" />
+        </property>
+        <set name="detalleCompras" inverse="true">
+            <key>
+                <column name="idCompraR" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetalleCompra" />
+        </set>
+        <set name="detalleCompras_1" inverse="true">
+            <key>
+                <column name="idCompraR" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetalleCompra" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.CatRoles" table="cat_roles" catalog="dbakihabara">
+        <id name="rol" type="string">
+            <column name="rol" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcionRol" type="string">
+            <column name="descripcion_rol" length="45" />
+        </property>
+        <set name="rolesusarioses" inverse="true">
+            <key>
+                <column name="rolR" length="30" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Rolesusarios" />
+        </set>
+        <set name="rolesusarioses_1" inverse="true">
+            <key>
+                <column name="rolR" length="30" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Rolesusarios" />
+        </set>
+    </class>
+</hibernate-mapping>

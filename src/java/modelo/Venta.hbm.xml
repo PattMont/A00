@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Venta" table="venta" catalog="dbakihabara">
+        <id name="idVenta" type="java.lang.Integer">
+            <column name="idVENTA" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empleado" class="modelo.Empleado" fetch="select">
+            <column name="idEmpleado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="catEstadoVenta" class="modelo.CatEstadoVenta" fetch="select">
+            <column name="idEstadoR" length="45" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cliente" class="modelo.Cliente" fetch="select">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one>
+        <property name="fechaPedido" type="timestamp">
+            <column name="fechaPedido" length="19" not-null="true" />
+        </property>
+        <property name="fechaentrega" type="date">
+            <column name="fechaentrega" length="10" not-null="true" />
+        </property>
+        <set name="detalleVentas" inverse="true">
+            <key>
+                <column name="idVentaR" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetalleVenta" />
+        </set>
+        <set name="detalleVentas_1" inverse="true">
+            <key>
+                <column name="idVentaR" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetalleVenta" />
+        </set>
+    </class>
+</hibernate-mapping>

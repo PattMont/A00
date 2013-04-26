@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.Game" table="game" catalog="dbakihabara">
+        <id name="idgame" type="java.lang.Integer">
+            <column name="idgame" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="catEstado" class="modelo.CatEstado" fetch="select">
+            <column name="estado" length="45" />
+        </many-to-one>
+        <property name="tituloGame" type="string">
+            <column name="tituloGame" length="60" not-null="true" />
+        </property>
+        <property name="urlCarpeta" type="string">
+            <column name="urlCarpeta" length="300" />
+        </property>
+        <property name="urlImg" type="string">
+            <column name="urlIMG" length="300" />
+        </property>
+        <property name="resenia" type="string">
+            <column name="resenia" />
+        </property>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <property name="precioBase" type="string">
+            <column name="precioBase" length="45" />
+        </property>
+        <set name="detalleCompras" inverse="true">
+            <key>
+                <column name="idGameR" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetalleCompra" />
+        </set>
+        <set name="detalleCompras_1" inverse="true">
+            <key>
+                <column name="idGameR" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetalleCompra" />
+        </set>
+        <set name="catPlataformas" inverse="false" table="gameplataforma">
+            <key>
+                <column name="idgameR" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.CatPlataforma">
+                <column name="plataforma" length="45" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="gamesForIdgameR1" inverse="false" table="gamegame">
+            <key>
+                <column name="idgameR2" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.Game">
+                <column name="idgameR1" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="gamesForIdgameR2" inverse="false" table="gamegame">
+            <key>
+                <column name="idgameR1" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.Game">
+                <column name="idgameR2" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="detalleVentas" inverse="true">
+            <key>
+                <column name="idGameR" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetalleVenta" />
+        </set>
+        <set name="catCategorias" inverse="false" table="gamecategoria">
+            <key>
+                <column name="idgameR" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.CatCategoria">
+                <column name="idCategoria" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="estudios" inverse="false" table="gameestudio">
+            <key>
+                <column name="idgameR" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.Estudio">
+                <column name="idestudioR" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="catClasificacions" inverse="false" table="gameclasificacione">
+            <key>
+                <column name="idGame" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.CatClasificacion">
+                <column name="idClasificacion" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="detalleVentas_1" inverse="true">
+            <key>
+                <column name="idGameR" not-null="true" />
+            </key>
+            <one-to-many class="modelo.DetalleVenta" />
+        </set>
+    </class>
+</hibernate-mapping>

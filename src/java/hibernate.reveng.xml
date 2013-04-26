@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="dbakihabara"/>
+  <table-filter match-name="proveedor"/>
+  <table-filter match-name="detalle_venta"/>
+  <table-filter match-name="venta"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="compra"/>
+  <table-filter match-name="cat_estado"/>
+  <table-filter match-name="detalle_compra"/>
+  <table-filter match-name="direccion"/>
+  <table-filter match-name="gamegame"/>
+  <table-filter match-name="cat_estado_venta"/>
+  <table-filter match-name="cat_categoria"/>
+  <table-filter match-name="game"/>
+  <table-filter match-name="sucursal"/>
+  <table-filter match-name="cat_roles"/>
+  <table-filter match-name="cat_puestos"/>
+  <table-filter match-name="estudio"/>
+  <table-filter match-name="cat_plataforma"/>
+  <table-filter match-name="gamecategoria"/>
+  <table-filter match-name="empleado"/>
+  <table-filter match-name="persona"/>
+  <table-filter match-name="rolesusarios"/>
+  <table-filter match-name="gameestudio"/>
+  <table-filter match-name="cat_departamento"/>
+  <table-filter match-name="gameclasificacione"/>
+  <table-filter match-name="departamento"/>
+  <table-filter match-name="gameplataforma"/>
+  <table-filter match-name="cat_clasificacion"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/04/2013 10:50:31 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelo.CatPuestos" table="cat_puestos" catalog="dbakihabara">
+        <id name="puesto" type="string">
+            <column name="puesto" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" />
+        </property>
+        <set name="empleados" inverse="true">
+            <key>
+                <column name="puesto_R" length="45" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Empleado" />
+        </set>
+        <set name="empleados_1" inverse="true">
+            <key>
+                <column name="puesto_R" length="45" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Empleado" />
+        </set>
+    </class>
+</hibernate-mapping>
